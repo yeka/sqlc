@@ -496,6 +496,15 @@ PG_DATABASE  dinotest
 go test --tags=examples,exp ./...
 ```
 
+Using [docker](http://docker.com/), these command will instantly start a PostgreSQL and MySQL server, given the port isn't already used:
+```
+docker run --rm -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=dinotest postgres:latest
+docker run --rm -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mysecretpassword -e MYSQL_DATABASE=dinotest mysql:latest
+``` 
+
+Or simply run ```docker-compose up``` if `docker-compose` is available.
+
+
 ### Regenerate expected test output
 
 If you need to update a large number of expected test output in the
